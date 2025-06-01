@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Adopciones</title>
+</head>
+<body>
+<h1>Adopciones registradas</h1>
+<a href="/adopcion/nueva">Registrar nueva adopción</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Animal</th>
+        <th>Adoptante</th>
+        <th>Contacto</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="adopcion : ${adopciones}">
+        <td th:text="${adopcion.id}"></td>
+        <td th:text="${adopcion.nombreAnimal}"></td>
+        <td th:text="${adopcion.adoptanteNombre}"></td>
+        <td th:text="${adopcion.contacto}"></td>
+        <td th:text="${adopcion.fechaAdopcion}"></td>
+        <td>
+            <a th:href="@{'/adopcion/editar/' + ${adopcion.id}}">Editar</a> |
+            <a th:href="@{'/adopcion/eliminar/' + ${adopcion.id}}">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

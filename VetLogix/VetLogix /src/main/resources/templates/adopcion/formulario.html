@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Adopción</title>
+</head>
+<body>
+<h1 th:text="${adopcion.id == null ? 'Nueva Adopción' : 'Editar Adopción'}"></h1>
+<form th:action="@{/adopcion/guardar}" th:object="${adopcion}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Nombre del animal:</label>
+    <input type="text" th:field="*{nombreAnimal}" required /><br/>
+    <label>Nombre del adoptante:</label>
+    <input type="text" th:field="*{adoptanteNombre}" required /><br/>
+    <label>Contacto:</label>
+    <input type="text" th:field="*{contacto}" required /><br/>
+    <label>Fecha de adopción:</label>
+    <input type="date" th:field="*{fechaAdopcion}" required /><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a href="/adopcion">Cancelar</a>
+</body>
+</html>
