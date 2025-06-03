@@ -29,7 +29,8 @@ public class Adopcion {
         return nombreAnimal;
     }
 
-    public void setNombreAnimal(String nombreAnimal) {
+    public void
+    setNombreAnimal(String nombreAnimal) {
         this.nombreAnimal = nombreAnimal;
     }
 

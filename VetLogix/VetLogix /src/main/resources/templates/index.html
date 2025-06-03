@@ -1,10 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VetZoo - Zoológico Veterinaria</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --primary-green: #28a745;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .navbar {
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .section-title {
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .card-title {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">VetZoo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#animals">Animales</a></li>
+                <li class="nav-item"><a class="nav-link" href="#habitat">Hábitat</a></li>
+                <li class="nav-item"><a class="nav-link" href="adopcion/nueva">Adopción</a></li>
+                <li class="nav-item"><a class="nav-link" href="#treatment">Tratamiento</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Bienvenido a VetZoo</h1>
+        <p class="lead">Cuidamos y protegemos a los animales de nuestro zoológico con amor y profesionalismo.</p>
+        <a href="adopcion" class="btn btn-light btn-lg mt-3">Adopta un amigo</a>
+    </div>
+</section>
+
+<!-- Animals Section -->
+<section id="animals" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Nuestros Animales</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/400x250/?lion" class="card-img-top" alt="León" />
+                    <div class="card-body">
+                        <h5 class="card-title">León</h5>
+                        <p class="card-text">El rey de la selva, fuerte y majestuoso, es uno de nuestros animales favoritos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/400x250/?elephant" class="card-img-top" alt="Elefante" />
+                    <div class="card-body">
+                        <h5 class="card-title">Elefante</h5>
+                        <p class="card-text">Gentil y sabio, este gigante es un símbolo de fuerza y memoria.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="https://source.unsplash.com/400x250/?parrot" class="card-img-top" alt="Loro" />
+                    <div class="card-body">
+                        <h5 class="card-title">Loro</h5>
+                        <p class="card-text">Colorido y parlanchín, aporta alegría y vida a nuestro zoológico.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Habitat Section -->
+<section id="habitat" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">Hábitats Naturales</h2>
+        <p class="text-center mb-4">Creamos espacios adecuados que simulan los ambientes naturales para el bienestar de los animales.</p>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <img src="https://source.unsplash.com/600x350/?forest" alt="Bosque" class="img-fluid rounded shadow" />
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div>
+                    <h4>Bosque Tropical</h4>
+                    <p>Un hábitat cálido y húmedo para animales como monos y aves exóticas.</p>
+                    <h4>Savanna Africana</h4>
+                    <p>Área abierta con pastizales, ideal para grandes mamíferos como cebras y jirafas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Adoption Section -->
+<section id="adoption" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Adopción</h2>
+        <p class="text-center mb-5">Ayuda a cuidar a nuestros animales adoptando uno. Recibirás actualizaciones y la satisfacción de proteger una vida.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="name" placeholder="Tu nombre" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="tu@correo.com" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="animal" class="form-label">Animal para adopción</label>
+                        <select class="form-select" id="animal" required>
+                            <option selected disabled>Selecciona un animal</option>
+                            <option>León</option>
+                            <option>Elefante</option>
+                            <option>Loro</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Adoptar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Treatment Section -->
+<section id="treatment" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">Tratamientos Veterinarios</h2>
+        <p class="text-center mb-4">Ofrecemos servicios médicos especializados para asegurar la salud y bienestar de los animales.</p>
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <div class="p-3 border rounded shadow-sm">
+                    <h5 class="card-title">Chequeos generales</h5>
+                    <p>Revisiones periódicas para mantener a los animales en óptimas condiciones.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="p-3 border rounded shadow-sm">
+                    <h5 class="card-title">Vacunación</h5>
+                    <p>Programas de vacunación para prevenir enfermedades comunes.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="p-3 border rounded shadow-sm">
+                    <h5 class="card-title">Tratamientos especializados</h5>
+                    <p>Atención para condiciones específicas y cirugías cuando es necesario.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>© 2025 VetZoo. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

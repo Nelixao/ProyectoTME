@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
+    <meta charset="UTF-8" />
     <title>Lista de Adopciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<h1>Adopciones registradas</h1>
-<a href="/adopcion/nueva">Registrar nueva adopción</a>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Animal</th>
-        <th>Adoptante</th>
-        <th>Contacto</th>
-        <th>Fecha</th>
-        <th>Acciones</th>
-    </tr>
-    <tr th:each="adopcion : ${adopciones}">
-        <td th:text="${adopcion.id}"></td>
-        <td th:text="${adopcion.nombreAnimal}"></td>
-        <td th:text="${adopcion.adoptanteNombre}"></td>
-        <td th:text="${adopcion.contacto}"></td>
-        <td th:text="${adopcion.fechaAdopcion}"></td>
-        <td>
-            <a th:href="@{'/adopcion/editar/' + ${adopcion.id}}">Editar</a> |
-            <a th:href="@{'/adopcion/eliminar/' + ${adopcion.id}}">Eliminar</a>
-        </td>
-    </tr>
-</table>
+<div class="container mt-5">
+    <h1 class="text-primary mb-4">Adopciones registradas</h1>
+    <a th:href="@{/adopcion/nueva}">Registrar nueva adopción</a>
+    <table class="table table-striped table-bordered">
+        <thead class="table-primary">
+        <tr>
+            <th>ID</th>
+            <th>Animal</th>
+            <th>Adoptante</th>
+            <th>Contacto</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="adopcion : ${adopciones}">
+            <td th:text="${adopcion.id}">1</td>
+            <td th:text="${adopcion.nombreAnimal}">León</td>
+            <td th:text="${adopcion.adoptanteNombre}">Juan Pérez</td>
+            <td th:text="${adopcion.contacto}">juan@example.com</td>
+            <td th:text="${#dates.format(adopcion.fechaAdopcion, 'dd/MM/yyyy')}">03/06/2025</td>
+            <td>
+                <a th:href="@{'/adopcion/editar/' + ${adopcion.id}}" class="btn btn-sm btn-warning">Editar</a>
+                <a th:href="@{'/adopcion/eliminar/' + ${adopcion.id}}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(adopciones)}">
+            <td colspan="6" class="text-center">No hay adopciones registradas.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
