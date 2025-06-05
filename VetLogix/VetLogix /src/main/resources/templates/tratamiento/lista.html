@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tratamientos</title>
+</head>
+<body>
+<h1>Lista de Tratamientos</h1>
+<a th:href="@{/tratamiento/nuevo}">Nuevo Tratamiento</a>
+<table>
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${tratamientos}">
+        <td th:text="${t.nombre}">Nombre</td>
+        <td th:text="${t.descripcion}">Descripción</td>
+        <td>
+            <a th:href="@{/tratamiento/editar/{id}(id=${t.id})}">Editar</a>
+            <a th:href="@{/tratamiento/eliminar/{id}(id=${t.id})}">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

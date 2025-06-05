@@ -15,8 +15,16 @@ public class Adopcion {
     private String contacto;
     private LocalDate fechaAdopcion;
 
-    // Getters y setters
+    // ✅ Constructor vacío obligatorio para JPA
+    public Adopcion() {
+    }
 
+    // Constructor con ID (opcional si lo necesitas)
+    public Adopcion(Long id) {
+        this.id = id;
+    }
+
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -29,8 +37,7 @@ public class Adopcion {
         return nombreAnimal;
     }
 
-    public void
-    setNombreAnimal(String nombreAnimal) {
+    public void setNombreAnimal(String nombreAnimal) {
         this.nombreAnimal = nombreAnimal;
     }
 

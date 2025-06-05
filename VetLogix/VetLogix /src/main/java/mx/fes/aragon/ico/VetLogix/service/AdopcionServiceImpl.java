@@ -19,13 +19,13 @@ public class AdopcionServiceImpl implements AdopcionService {
     }
 
     @Override
-    public Adopcion buscarPorId(Long id) {
-        return adopcionRepository.findById(id).orElse(null);
+    public void guardar(Adopcion adopcion) {
+        adopcionRepository.save(adopcion);
     }
 
     @Override
-    public void guardar(Adopcion adopcion) {
-        adopcionRepository.save(adopcion);
+    public Adopcion buscarPorId(Long id) {
+        return adopcionRepository.findById(id).orElse(null);
     }
 
     @Override

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Hábitat</title>
+</head>
+<body>
+<h2 th:text="${habitat.id == null} ? 'Nuevo Hábitat' : 'Editar Hábitat'"></h2>
+<form th:action="@{/habitats/guardar}" th:object="${habitat}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Tipo:</label>
+    <input type="text" th:field="*{tipo}" required/><br/>
+
+    <label>Ubicación:</label>
+    <input type="text" th:field="*{ubicacion}" required/><br/>
+
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/habitats}">Regresar</a>
+</body>
+</html>

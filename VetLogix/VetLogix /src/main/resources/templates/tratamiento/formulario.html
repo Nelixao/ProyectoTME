@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Tratamiento</title>
+</head>
+<body>
+<h1 th:text="${tratamiento.id != null} ? 'Editar Tratamiento' : 'Nuevo Tratamiento'"></h1>
+<form th:action="@{/tratamiento/guardar}" th:object="${tratamiento}" method="post">
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" /><br/>
+    <label>Descripción:</label>
+    <textarea th:field="*{descripcion}"></textarea><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/tratamiento}">Volver</a>
+</body>
+</html>

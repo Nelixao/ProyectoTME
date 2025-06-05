@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Hábitats</title>
+</head>
+<body>
+<h2>Hábitats Registrados</h2>
+<a th:href="@{/habitats/nuevo}">Agregar Nuevo</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Ubicación</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="habitat : ${habitats}">
+        <td th:text="${habitat.id}"></td>
+        <td th:text="${habitat.tipo}"></td>
+        <td th:text="${habitat.ubicacion}"></td>
+        <td>
+            <a th:href="@{'/habitats/editar/' + ${habitat.id}}">Editar</a>
+            <a th:href="@{'/habitats/eliminar/' + ${habitat.id}}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
